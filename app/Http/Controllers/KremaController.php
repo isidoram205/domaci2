@@ -85,8 +85,9 @@ class KremaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Krema $krema)
+    public function destroy(Krema $krema_id)
     {
-        //
+        Krema::destroy($krema_id);
+        return response()->json('Krema je uspesno obrisana!');
     }
 }

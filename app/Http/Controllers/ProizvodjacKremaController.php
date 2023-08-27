@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Krema;
+use App\Http\Resources\KremaResource;
 use Illuminate\Http\Request;
 
-class ProizvodjacKremaResource extends Controller
+class ProizvodjacKremaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,9 @@ class ProizvodjacKremaResource extends Controller
     {
         $kreme = Krema::get()->where('proizvodjac_id', $proizvodjac_id);
         if(is_null($kreme)){
-            return response()->json('Nije pronadjene kreme', 404);
+            return response()->json('Nisu pronadjene kreme', 404);
         }
-        return response()->json($kreme);
+        return KremaResource::collection($kreme);
     }
 
     /**

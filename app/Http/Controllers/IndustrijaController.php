@@ -60,7 +60,7 @@ class IndustrijaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Industrija $industrija_id)
+    public function destroy($industrija_id)
     {
         Industrija::destroy($industrija_id);
         return response()->json('Uspesno obrisano!');

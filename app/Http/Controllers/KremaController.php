@@ -55,8 +55,9 @@ class KremaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Krema $krema)
+    public function update(Request $request,$krema_id)
     {
+        $krema = Krema::find($krema_id);
         $validator = Validator::make($request->all(), [
             'proizvodjac_id'=>'required',
             'user_id'=>'required',
